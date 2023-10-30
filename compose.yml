@@ -1,0 +1,27 @@
+version: "3"
+services:
+
+  app:
+    container_name: sonarqube
+    image: sonarqube:community
+    depends_on:
+      - db
+    environment:
+      SONAR_JDBC_URL: ${DATABASE_JDBC}
+      SONAR_JDBC_USERNAME: ${DATABASE_USERNAME}
+      SONAR_JDBC_PASSWORD: ${DATABASE_PASSWORD}
+    volumes:
+      - ./volumes/data:/opt/sonarqube/data
+      - ./volumes/extensions:/opt/sonarqube/extensions
+      - ./volumes/logs:/opt/sonarqube/logs
+    ports:
+      - "${SONARQUBE_PORT}:9000"
+  db:
+    container_name: postgresql
+    image: postgres:12
+    environment:
+      POSTGRES_USER: ${DATABASE_USERNAME}
+      POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
+    volumes:
+      - ./volumes/postgresql:/var/lib/postgresql
+      - ./volumes/postgresql/data:/var/lib/postgresql/data
