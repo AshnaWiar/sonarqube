@@ -19,4 +19,5 @@ $ cp .env.example .env
 $ docker compose up
 ```
 
-Sonarqube will be available on http://localhost:9000
+Sonarqube will be available on http://localhost:9000.<br>
+Use the default credentials to login [docs.sonarqube.com.](https://docs.sonarsource.com/sonarqube/latest/instance-administration/security/#:~:text=Default%20admin%20credentials,Password%3A%20admin)
