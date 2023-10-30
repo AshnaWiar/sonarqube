@@ -1,5 +1,4 @@
 ## Sonarqube compose.yml
-<hr>
 
 ## Docker images
 This project will be using the following docker images.
